@@ -10,7 +10,7 @@ index = 0
 sum = 0
 
 while(index < expenses.length()) #поки індекс < довжини масива
-    #p(expenses[index])
+    #p(expenses[index]) для дебага
     sum = sum + expenses[index] #додаю значення елемента масива за індексом
     index = index + 1 #збільшую індекс
 end
