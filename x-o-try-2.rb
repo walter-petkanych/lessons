@@ -18,26 +18,25 @@ c2 = '_'
 c3 = ' '
 x = 'X'
 o = 'O'
-occupied = 'Sorry, but this square is occupied, try again!'
+occupied = "Sorry, but this square is occupied, try again!"
 #plaingField = pF
 pF = ['  A B C', '1 ', '2 ', '3 ', '|']
 field = ['a1', 'a2', 'a3', ' b1', 'b2', 'b3', 'c1', 'c2', 'c3']
 #whatItIs = ['a1', '1a', 'A1', '1A', 'a2', '2a', 'A2', '2A', 'a3', '3a', 'A3', '3A', 'b1', '1b', 'B1', '1B', 'b2', '2b', 'B2', '2B', 'b3', '3b', 'B3', '3B', 'c1', '1c', 'C1', '1C', 'c2', '2c', 'C2', '2C', 'c3', '3c', 'C3', '3C']
 puts('Game started!')
 while(index < field.length())
-    p('перед pезалтом')
     result += "#{pF[0]}" "\n" "#{pF[1]}#{a1}#{pF[4]}#{b1}#{pF[4]}#{c1}" "\n" "#{pF[2]}#{a2}#{pF[4]}#{b2}#{pF[4]}#{c2}" "\n" "#{pF[3]}#{a3}#{pF[4]}#{b3}#{pF[4]}#{c3}" "\n"
-    p('після резалта')
     puts(result)
     p('перед іф юзер 1')
-    if(user == 1)
+    while(user == 1)
         puts(firstName + ' make your move!')
         move = gets().chomp()
         move.to_s()
         user = user + 1
         if(move == 'a1')
-            if(a1 == x && o)
+            if((x == a1) || (o == a1))
                 puts(occupied)
+                #next
             elsif(a1 != x && o)
                 a1 = 'X'
             end
@@ -90,19 +89,21 @@ while(index < field.length())
                 c3 = 'X'
             end
         else
-            puts('Sory, but  blablabla' 'try again')
+            p('Sory, but  blablabla' 'try again')
             user = user + 1
             next
         end
-        p('перед іф юзер 2')
-    elsif(user == 2)
+    end
+    while(user == 2)
+        p('після іф юзер 2')
         puts(secondName + ' make your move!')
         move = gets().chomp()
         move.to_s() 
         user = user - 1
         if(move == 'a1')
-            if(a1 == x && o)
+            if((x == a1) || (o == a1))
                 puts(occupied)
+                #next
             elsif(a1 != x && o)
                 a1 = 'O'
             end
@@ -155,7 +156,7 @@ while(index < field.length())
                 c3 = 'O'
             end
         else
-            puts('Sory, but  blablabla' 'try again')
+            p('Sory, but  blablabla' 'try again')
             user = user + 1
             next
         end
