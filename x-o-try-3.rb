@@ -23,31 +23,30 @@ occupied = "Sorry, but this square is occupied, try again!"
 pF = ['  A B C', '1 ', '2 ', '3 ', '|']
 puts('Game started!')
 
-def myMethod (move)
+def myMethod (move, symbol)
     if(move == 'a1')
-        $a1 = 'X'
+        $a1 = symbol
     elsif(move == 'a2')
-        $a2 = 'X'
+        $a2 = symbol
     elsif(move == 'a3')
-        $a3 = 'X'
+        $a3 = symbol
     elsif(move == 'b1')
-        $b1 = 'X'
+        $b1 = symbol
     elsif(move == 'b2')
-        $b2 = 'X'
+        $b2 = symbol
     elsif(move == 'b3')
-        $b3 = 'X'
+        $b3 = symbol
     elsif(move == 'c1')
-        $c1 = 'X'
+        $c1 = symbol
     elsif(move == 'c2')
-        $c2 = 'X'
+        $c2 = symbol
     elsif(move == 'c3')
-        $c3 = 'X'
+        $c3 = symbol
     else
         puts('Sory, but blablabla' 'try again')
         return false
     end
     return true
-
 end    
 while(index < 9)
     result += "#{pF[0]}" "\n" "#{pF[1]}#{$a1}#{pF[4]}#{$b1}#{pF[4]}#{$c1}" "\n" "#{pF[2]}#{$a2}#{pF[4]}#{$b2}#{pF[4]}#{$c2}" "\n" "#{pF[3]}#{$a3}#{pF[4]}#{$b3}#{pF[4]}#{$c3}" "\n"
@@ -57,37 +56,18 @@ while(index < 9)
         move = gets().chomp()
         move.to_s()
         user = user + 1
-        goNext = myMethod(move)
+        goNext = myMethod(move, 'X')
         if (!goNext)
             user = user - 1
             next
         end
-
     elsif(user == 2)
         puts(secondName + ' make your move!')
         move = gets().chomp()
         move.to_s() 
         user = user - 1
-        if(move == 'a1')
-            $a1 = 'O'
-        elsif(move == 'a2')
-            $a2 = 'O'
-        elsif(move == 'a3')
-            $a3 = 'O'
-        elsif(move == 'b1')
-            $b1 = 'O'
-        elsif(move == 'b2')
-            $b2 = 'O'
-        elsif(move == 'b3')
-            $b3 = 'O'
-        elsif(move == 'c1')
-            $c1 = 'O'
-        elsif(move == 'c2')
-            $c2 = 'O'
-        elsif(move == 'c3')
-            $c3 = 'O'
-        elsif
-            p('Sory, but  blablabla' 'try again')
+        goNext = myMethod(move, 'O')
+        if (!goNext)
             user = user + 1
             next
         end
