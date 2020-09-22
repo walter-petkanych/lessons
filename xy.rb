@@ -1,10 +1,10 @@
-@field = "_|_|__|_|_ | | ".chars
-@symbols = "X0".chars
+@field = "_|_|__|_|_ | | ".chars #створили глобальну змінну, методом .chars розділили посимвольно запис в кавичках
+@symbols = "X0".chars #зробили те саме що і строкою вище
 
-def printField()
-    result = " A B C\n"
-    @field.each_with_index do |char, i|
-        result += ((i + 1) / 5 + 1).to_s if (i % 5 == 0)
+def printField() #створили новий метод
+    result = " A B C\n" #змінна з текством (шапкою поля)
+    @field.each_with_index do |char, i| #перебираємо елементи змінної field і ?
+        result += ((i + 1) / 5 + 1).to_s if (i % 5 == 0) 
         result += char
         result += "\n" if ((i + 1) % 5 == 0)
     end
