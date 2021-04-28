@@ -1,0 +1,25 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+  <%= link_to "sample app", '/', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",   '/' %></li> 
+        <li><%= link_to "Help",   'help' %></li>
+      <%
+=begin%>
+ the tutorial uses _path but the link with _path does not work on the pages, be sure to ask why! 
+        <li><%= link_to "Home",   'root_path' %></li> 
+        <li><%= link_to "Help",   'help_path' %></li> 
+  the same problem in the footer 
+  there is also a problem with the integration test, when I use:
+    assert_select "a[href =?]", contact_path
+  the test fails, and when I use:
+    assert_select "a[href =?]", 'contact'
+  then everything is fine
+<%
+=end%>
+        <li><%= link_to "Log in", '#' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
